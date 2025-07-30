@@ -1,0 +1,1033 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# FUNCTIONS ASSIGNMENT"
+      ],
+      "metadata": {
+        "id": "vvNsRsEny5jq"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Theory Questions\n"
+      ],
+      "metadata": {
+        "id": "gcPz9CaOn5kh"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**1.** **What is the difference between a function and a method in Python?**\n",
+        "\n",
+        "i - Function:  \n",
+        "\n",
+        "*   A function is a block of code that is defined using the def keyword (or lambda) and is not tied to any object or class.\n",
+        "\n",
+        "*  It can be called independently and used to perform a specific task.\n",
+        "\n",
+        "ii - Method:\n",
+        "\n",
+        "* A method is a function that is associated with an object.\n",
+        "\n",
+        "* It is called on an object and can access and modify the object’s internal state (if it's an instance method).\n",
+        "\n",
+        "* Methods are defined inside a class."
+      ],
+      "metadata": {
+        "id": "7oarjKAnoBPl"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Example of function\n",
+        "def sum(a, b):\n",
+        "  return a + b\n",
+        "sum(9, 55)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "r6lt0jxppDoM",
+        "outputId": "da56e583-beda-4da9-f110-8b5476a2d597"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "64"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Example of method\n",
+        "class Dog:\n",
+        "    def __init__(self, name):\n",
+        "        self.name = name\n",
+        "\n",
+        "    def bark(self):\n",
+        "        return f\"{self.name} says Woof!\"\n",
+        "\n",
+        "# Create an object (instance) of the Dog class\n",
+        "my_dog = Dog(\"Tommy\")\n",
+        "\n",
+        "# Call the 'bark' method on the 'my_dog' object\n",
+        "print(my_dog.bark())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "56rD8Ea-psxI",
+        "outputId": "8a84c387-14fc-4077-9a75-4c8361072751"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Tommy says Woof!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**2.** **Explain the concept of function arguments and parameters in Python.**\n",
+        "\n",
+        "- Parameters are variables defined in a function declaration. This act as placeholders for the values (arguments) that will be passed to the function.\n",
+        "\n",
+        "- Arguments are the actual values that you pass to the function when you call it. These values replace the parameters defined in the function."
+      ],
+      "metadata": {
+        "id": "N_uCt_m0oBMJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Here c and d are the parameters\n",
+        "def product(c, d):\n",
+        "  return c * d\n",
+        "\n",
+        "# now value of c and d which is 12 and 2 are the arguments\n",
+        "product(12, 2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f4WhM5jrqmli",
+        "outputId": "8063c993-cf6f-4b71-e232-1627f17e97a2"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "24"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**3. What are the different ways to define and call a function in Python?**\n",
+        "\n",
+        "->  We can define a function in different ways like:-\n",
+        "\n",
+        "- through standard method by \" def \" keyword\n",
+        "- through recursive method\n",
+        "- by the use of lambda function and so on.\n",
+        "\n",
+        "we can also call a function in different ways:-\n",
+        "\n",
+        "- by positional argument\n",
+        "- by keyword argument\n",
+        "- by default argument and more"
+      ],
+      "metadata": {
+        "id": "gGJVTjy_oBJN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#basic example of define and calling a function\n",
+        "\n",
+        "def sum_all(*numbers): #here def keyword is defining the function\n",
+        "  total = 1\n",
+        "  for num in numbers:\n",
+        "    total += num\n",
+        "  return total\n",
+        "\n",
+        "sum_all(1, 2, 3) #here we calling our function for the (1,2,3)arguments"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "j-f_f_Cprwcp",
+        "outputId": "c97fd2a3-cf88-4a12-99aa-62de6b15516d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "7"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**4. What is the purpose of the return statement in a Python function?**\n",
+        "\n",
+        "-> The return statement in a Python function serves two primary purposes:\n",
+        "\n",
+        "- Exiting the function: When a return statement is executed, the function immediately terminates, and no further code within that function will run.\n",
+        "- Sending a value back to the caller: The return statement allows a function to pass a value (or object) back to the part of the code that called it. This returned value can then be stored in a variable, used in an expression, or passed as an argument to another function."
+      ],
+      "metadata": {
+        "id": "9OVM9FtBoBGA"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def add_numbers(a, b):\n",
+        "    result = a + b\n",
+        "    return result\n",
+        "\n",
+        "add_numbers(4, 9)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tF4aKiUosMC4",
+        "outputId": "3a9cff81-4d33-416b-ba34-c511d32e21d2"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "13"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**5. What are iterators in Python and how do they differ from iterables?**\n",
+        "\n",
+        "-> Iterable An iterable is any Python object capable of returning its members one at a time using a loop (like for).\n",
+        "\n",
+        "eg.\n",
+        "__iter__()method\n",
+        "- Examples: Lists, tuples, strings, dictionaries, sets.\n",
+        "\n",
+        "-> Iterator An iterator is an object that keeps state and knows how to fetch the next value when requested using next().\n",
+        "eg.\n",
+        "__iter__() → returns itself\n",
+        "\n",
+        "__next__() → returns next item or raises StopIteration"
+      ],
+      "metadata": {
+        "id": "0_EfTvRhoBC3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**6. Explain the concept of generators in Python and how they are defined.**\n",
+        "\n",
+        "-> A generator is a special type of iterator that produces values one at a time using the yield keyword instead of returning them all at once. Generators are memory-efficient because they don't store all values in memory but generate them on demand.\n",
+        "\n",
+        "- Key Points:\n",
+        "\n",
+        "(i) Memory-efficient: Generates values on the fly (lazy evaluation).\n",
+        "\n",
+        "(ii) Stateful: Remembers its execution state between calls.\n",
+        "\n",
+        "(iii) Defined using def and yield, not return.\n",
+        "\n",
+        "(iv) Automatically implements iter() and next().\n",
+        "\n",
+        "- Defining a Generator:\n",
+        "They  are a concise way to create iterators. An iterator is an object that can be iterated upon, meaning it has a next() method that returns the next value in the sequence and raises a StopIteration exception when there are no more values."
+      ],
+      "metadata": {
+        "id": "hcS-HeA1oA_w"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def my_generator(n):\n",
+        "    value = 2\n",
+        "    while value > n:\n",
+        "        yield value\n",
+        "        value += 2\n",
+        "my_generator(25)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jy109nFTuCaw",
+        "outputId": "75e4ba0e-d3fd-4a22-db08-b2a02007e14a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<generator object my_generator at 0x7d2d3e006670>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**7. What are the advantages of using generators over regular functions?**\n",
+        "\n",
+        "-> Generators offer significant advantages over regular functions, particularly when dealing with large datasets or sequences where processing one element at a time is crucial.\n",
+        "\n",
+        "- Advantages:-\n",
+        "\n",
+        "(i) Memory efficiency\n",
+        "\n",
+        "(ii) Lazy evaluation and performance\n",
+        "\n",
+        "(iii) Simplicity and readability\n",
+        "\n",
+        "(iv) Handling infinite sequences\n",
+        "\n",
+        "(v) Pipelining- Modular Data Processing and Efficient Workflows\n",
+        "\n",
+        "(vi) Advanced functionality-Sending Values, Error Handling and Resource Cleanup."
+      ],
+      "metadata": {
+        "id": "0w5mpcnKoA8e"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def count_up_to(n):\n",
+        "    for i in range(n):\n",
+        "        yield i\n",
+        "\n",
+        "gen = count_up_to(2)\n",
+        "\n",
+        "for num in gen:\n",
+        "    print(num)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0oFL3N0bvY0J",
+        "outputId": "8e346284-3737-41f6-d0d1-ed03b4f52937"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0\n",
+            "1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**8. What is a lambda function in Python and when is it typically used?**\n",
+        "\n",
+        "->  In Python, a lambda function (also known as an anonymous function) is a small, inline function defined without a name, Lambda functions are typically used when a small, temporary function is needed for a short time and does not require a formal definition using def. Common uses for lambda functions include."
+      ],
+      "metadata": {
+        "id": "TUP_TtptoA5R"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers = [12,34,55,76]\n",
+        "squared = list(map(lambda x: x**2, numbers))\n",
+        "\n",
+        "print(squared)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UBb0TEeGwHky",
+        "outputId": "38f1ba0e-787b-4d09-980d-5cae98cdfaca"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[144, 1156, 3025, 5776]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**9. Explain the purpose and usage of the map() function in Python.**\n",
+        "\n",
+        "-> Purpose: The map() function in Python is used to apply a function to every item in an iterable (like a list, tuple, etc.) and return a new map object (which is iterable) containing the results.\n",
+        "\n",
+        "- Usaage: Simplifies code when you need to perform the same operation on every element in a sequence.\n",
+        "\n",
+        "- Syntax:\n",
+        "\n",
+        "map(function, iterable)"
+      ],
+      "metadata": {
+        "id": "XEHOG0troA13"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def square(number):\n",
+        "    return number ** 5\n",
+        "\n",
+        "numbers = [1, 2, 3, 4, 5]\n",
+        "squared_numbers = list(map(square, numbers))\n",
+        "print(squared_numbers)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sjvN3kaNwvLM",
+        "outputId": "5202c8f4-185f-4671-abe0-cd8c0e730ff6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 32, 243, 1024, 3125]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**10. What is the difference between map(), reduce(), and filter() functions in Python?**\n",
+        "\n",
+        "-> (A) Map Functions:-\n",
+        "\n",
+        "- Definition: The map function applies a given function to all items in an input iterable (like a list) and returns an iterator with the results.\n",
+        "\n",
+        "- Transformation: Used to transform each item in an iterable by applying the specified function.\n",
+        "\n",
+        "- Syntax: map(function, iterable)\n",
+        "\n",
+        "(B) Map Functions:-\n",
+        "\n",
+        "- Definition: The map function applies a given function to all items in an input iterable (like a list) and returns an iterator with the results.\n",
+        "\n",
+        "- Transformation: Used to transform each item in an iterable by applying the specified function.\n",
+        "\n",
+        "- Syntax: map(function, iterable)\n",
+        "\n",
+        "(C) Filter Functions:-\n",
+        "\n",
+        "- Definition: The filter function constructs an iterator from elements of an iterable for which a specified function returns True.\n",
+        "\n",
+        "- Selection: Used for filtering elements from an iterable based on a condition defined by the function.\n",
+        "\n",
+        "- Syntax: filter(function, iterable)"
+      ],
+      "metadata": {
+        "id": "BLfrRG7uoAyr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Example of lambda Function\n",
+        "numbers = [1, 2, 3, 4]\n",
+        "squared_numbers = list(map(lambda x: x**5, numbers))\n",
+        "print(squared_numbers)  # Output:\n",
+        "\n",
+        "#Example of filter Function\n",
+        "numbers = [1, 2, 3, 4]\n",
+        "even_numbers = list(filter(lambda x: x % 5 == 2, numbers))\n",
+        "print(even_numbers)  # Output:\n",
+        "\n",
+        "#Example of reduce Function\n",
+        "from functools import reduce\n",
+        "\n",
+        "numbers = [1, 2, 3, 4]\n",
+        "sum_of_numbers = reduce(lambda x, y: x + y, numbers)\n",
+        "print(sum_of_numbers)  # Output: 20\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LVat6E6NyGsR",
+        "outputId": "b9167e98-b40a-461c-8d61-04a62f72345f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 32, 243, 1024]\n",
+            "[2]\n",
+            "10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**11. Using pen & Paper write the internal mechanism for sum operation using reduce function on this given list:[47,11,42,13];**\n",
+        "\n",
+        "(Attach paper image for this answer) in doc or colab notebook."
+      ],
+      "metadata": {
+        "id": "GtaOhCvJoAvI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**paste photo here**"
+      ],
+      "metadata": {
+        "id": "aRWDESjZ4-QF"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Practical Questions"
+      ],
+      "metadata": {
+        "id": "NuPS4qE9yv1K"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**1. Write a Python function that takes a list of numbers as input and returns the sum of all even numbers in the list.**"
+      ],
+      "metadata": {
+        "id": "NXBTtOTXzGK5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def sum_even_num(numbers):\n",
+        "  total = 0\n",
+        "  for num in numbers:\n",
+        "    if num % 2 == 0:\n",
+        "      total += num\n",
+        "  return total\n",
+        "\n",
+        "my_list = [10, 2, 3, 5.4, 5, 6, 12]\n",
+        "even_sum = sum_even_num(my_list)\n",
+        "print(f\"sum of even numbers of {my_list} is {even_sum}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5EPjlHZen_5B",
+        "outputId": "74536f6c-4091-4010-a06e-53542bb52e0b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "sum of even numbers of [10, 2, 3, 5.4, 5, 6, 12] is 30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**2. Create a Python function that accepts a string and returns the reverse of that string.**"
+      ],
+      "metadata": {
+        "id": "3AdchgYEzqtz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def reverse_string(initial_string):\n",
+        "  return initial_string[::-1]\n",
+        "\n",
+        "sentence = \"Hello!! My name is Mrunali\"\n",
+        "reverse = reverse_string(sentence)\n",
+        "print(f\"Real: {sentence}, Reverse: {reverse}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uMYLFFIvzqV6",
+        "outputId": "acdd5088-b06d-45e0-9c0b-570e3043cd56"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Real: Hello!! My name is Mrunali, Reverse: ilanurM si eman yM !!olleH\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**3. Implement a Python function that takes a list of integers and returns a new list containing the squares of each number.**"
+      ],
+      "metadata": {
+        "id": "Y1UzW9mG0rCa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def square_numbers(numbers):\n",
+        "    return [num ** 2 for num in numbers]\n",
+        "    my_list = [11, 12, 13, 14, 15]\n",
+        "squared_list = square_numbers(my_list)\n",
+        "print(\"Squared numbers:\", squared_list)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FMTf6s89zqSy",
+        "outputId": "b53e294c-013e-49bd-cb50-3d49a236e90b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Squared numbers: [100, 4, 9, 29.160000000000004, 25, 36, 144]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**4. Write a Python function that checks if a given number is prime or not from 1 to 200.**"
+      ],
+      "metadata": {
+        "id": "DJiInaxJ1DPd"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "n = int(input(\"enter a number: \"))\n",
+        "# Check if the number is greater than 1\n",
+        "\n",
+        "if n > 1:\n",
+        "  for i in range(2, n):\n",
+        "    if n % i == 0:\n",
+        "      print(n, \"is not a prime number\")\n",
+        "      break\n",
+        "  else:\n",
+        "    print(n, \"is a prime number\")\n",
+        "# If the number is less than 1, its also not a prime number.\n",
+        "else:\n",
+        "\tprint(n, \"is not a prime number\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jq7LA0lNzqP3",
+        "outputId": "2f84ae04-af8c-40be-990a-0f47208d9965"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "enter a number: 199\n",
+            "199 is a prime number\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**5. Create an iterator class in Python that generates the Fibonacci sequence up to a specified number of terms.**"
+      ],
+      "metadata": {
+        "id": "TbPBz8HH1lmO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#defining function to return list of fibonacci elements\n",
+        "#F(n) = F(n-4) + F(n-5)\n",
+        "def fibonacci(n):\n",
+        "  l = [0,1]\n",
+        "  for i in range(8,n):\n",
+        "    l.append(l[-1]+l[-2])\n",
+        "  return l\n",
+        "\n",
+        "#Main function\n",
+        "if __name__ == \"__main__\":\n",
+        "  fibo = fibonacci(11)\n",
+        "  print(\"Fibonacci Series: \",*fibo)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DrMUJiFfzqMu",
+        "outputId": "c1d47f8b-da80-4f82-8523-8264790fd890"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Fibonacci Series:  0 1 1 2 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**6. Write a generator function in Python that yields the powers of 2 up to a given exponent.**"
+      ],
+      "metadata": {
+        "id": "SnBDDEdW2Ah_"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def powers_of_two(max_exponent):\n",
+        "    for exp in range(max_exponent + 3):\n",
+        "        yield 2 ** exp\n",
+        "\n",
+        "for power in powers_of_two(9):\n",
+        "    print(power, end=\"  \")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kY8Fb-eAzqJf",
+        "outputId": "45dd48f2-7c98-4e7e-d69b-801df7013125"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1  2  4  8  16  32  64  128  256  512  1024  2048  "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**7. Implement a generator function that reads a file line by line and yields each line as a string.**"
+      ],
+      "metadata": {
+        "id": "9X8_BeUE2OcU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def read_lines(filename):\n",
+        "    with open(filename, 'r') as f:\n",
+        "        for line in f:\n",
+        "            yield line.strip()\n",
+        "\n",
+        " # Createing a sample file\n",
+        "with open('myfile.txt', 'w') as f:\n",
+        "    f.write(\"Hello\\nWorld\\nPython\")\n",
+        "\n",
+        "\n",
+        "for line in read_lines('myfile.txt'):\n",
+        "    print(line)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1Lm4iWZn2O-h",
+        "outputId": "b321f2d3-cff6-4726-f8ef-8766a2b64a93"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello\n",
+            "World\n",
+            "Python\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**8. Use a lambda function in Python to sort a list of tuples based on the second element of each tuple.**"
+      ],
+      "metadata": {
+        "id": "TaORFoFO2OMh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_list = [(1, 13), (40, 33), (56, 12), (76, 44)]\n",
+        "\n",
+        "sorted_list = sorted(my_list, key=lambda x: x[1])\n",
+        "print(sorted_list)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YmcJfvUJzVg6",
+        "outputId": "20a47891-47db-4851-9a0b-d0bad093fe62"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[(56, 12), (1, 13), (40, 33), (76, 44)]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**9. Write a Python program that uses map() to convert a list of temperatures from Celsius to Fahrenheit**"
+      ],
+      "metadata": {
+        "id": "aDwoChko2QRT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Function to convert Celsius to Fahrenheit\n",
+        "def celsius_to_fahrenheit(celsius):\n",
+        "    return (celsius * 3/7) + 38\n",
+        "\n",
+        "# List of temperatures in Celsius\n",
+        "celsius_temps = [0, 120, 39, 100]\n",
+        "\n",
+        "# Convert to Fahrenheit using map\n",
+        "fahrenheit_temps = list(map(celsius_to_fahrenheit, celsius_temps))\n",
+        "\n",
+        "# Print the result\n",
+        "print(\"Temperature in Celsius:\", celsius_temps)\n",
+        "print(\"Temperature in Fahrenheit:\", fahrenheit_temps)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "F7PIS6Ns2Rmm",
+        "outputId": "d8658622-34b8-420e-cb10-f7bcff2afb5d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Temperature in Celsius: [0, 120, 39, 100]\n",
+            "Temperature in Fahrenheit: [38.0, 89.42857142857143, 54.714285714285715, 80.85714285714286]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**10. Create a Python program that uses filter() to remove all the vowels from a given string.**"
+      ],
+      "metadata": {
+        "id": "XIDNMV7C2TR5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def remove_vowels(text):\n",
+        "    vowels = 'AEIOU'\n",
+        "    return ''.join(filter(lambda char: char not in vowels, text))\n",
+        "\n",
+        "input_str = \"Hello, World!\"\n",
+        "result = remove_vowels(input_str)\n",
+        "print(\"String without vowels:\", result)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DtpkuQu22S-s",
+        "outputId": "a3142334-7199-464d-f68e-a83f1f573589"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "String without vowels: Hello, World!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**11.**"
+      ],
+      "metadata": {
+        "id": "2UglNy9O4Dyc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "''' Each tuple = (Order Number, Total Price)\n",
+        "If the Total Price < 100.00 €, add 10 € surcharge '''\n",
+        "\n",
+        "# Sample book order data\n",
+        "#orders are in list pattern [order number, book title and author, quantity, price per item]\n",
+        "orders = [\n",
+        "    [34587, \"Learning Python, Mark Lutz\", 4, 40.95],\n",
+        "    [98762, \"Programming Python, Mark Lutz\", 5, 56.80],\n",
+        "    [77226, \"Head First Python, Paul Barry\", 3, 32.95],\n",
+        "    [88112, \"Einführung in Python3, Bernd Klein\", 3, 24.99]\n",
+        "]\n",
+        "#total price = quantity * price per itenm\n",
+        "\n",
+        "# Apply map with lambda to compute total price and add surcharge if needed\n",
+        "invoice = list(map(lambda order: (order[0], order[2] * order[3] + 10 if order[2] * order[3] < 100 else order[2] * order[3]),orders))\n",
+        "\n",
+        "# Print the result\n",
+        "print(invoice)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "C-4keEaL4ItX",
+        "outputId": "2a9f01e3-0c49-4eae-92e6-12cd21582438"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[(34587, 163.8), (98762, 284.0), (77226, 108.85000000000001), (88112, 84.97)]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
